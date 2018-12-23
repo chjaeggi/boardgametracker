@@ -1,11 +1,14 @@
 # Android Studio
 .idea
 .gradle
+/*/.gitignore
 /*/local.properties
+local.properties
 /*/out
+/out
 /*/*/build
+/*/build
 build
-/*/*/production
 *.iml
 *.iws
 *.ipr
