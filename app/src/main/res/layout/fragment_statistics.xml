@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".mobile.statistics.StatisticsFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:paddingBottom="56dp">
+
+        <TextView
+            android:id="@+id/message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Statistics Fragment\nStatistics Fragment\nStatistics Fragment\n
+            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
+            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
+            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
+            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
+            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
+            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
+            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
+            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
+            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
+            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
+            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
+            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
+            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
+            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
+            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
+            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
+            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
+            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment" />
+
+    </ScrollView>
+
+</layout>
