@@ -1,4 +1,4 @@
-package com.chjaeggi.boardgametracker.mobile.overview
+package com.chjaeggi.boardgametracker.mobile.home.overview
 
 import androidx.lifecycle.ViewModel
 

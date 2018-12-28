@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Board Game Tracker</string>
+    <string name="app_name">BoardGameTracker</string>
+    <string name="home">Home</string>
+    <string name="about">About</string>
+    <string name="overview">Overview</string>
+    <string name="favorites">Favorites</string>
+    <string name="statistics">Statistics</string>
 </resources>

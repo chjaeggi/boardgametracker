@@ -1,4 +1,4 @@
-package com.chjaeggi.boardgametracker.mobile.statistics
+package com.chjaeggi.boardgametracker.mobile.home.statistics
 
 import androidx.lifecycle.ViewModel
 
