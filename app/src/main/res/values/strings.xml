@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">BoardGameTracker</string>
-    <string name="short_app_name">BGT</string>
+    <string name="short_app_name">Tracker</string>
     <string name="home">Home</string>
     <string name="about">About</string>
     <string name="overview">Overview</string>
