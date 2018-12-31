@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.chjaeggi.boardgametracker">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".mobile.BoardGameTrackerApplication"
         android:allowBackup="true"

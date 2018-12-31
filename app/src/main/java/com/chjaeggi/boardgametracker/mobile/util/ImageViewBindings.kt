@@ -1,4 +1,4 @@
-package com.chjaeggi.boardgametracker.mobile.details
+package com.chjaeggi.boardgametracker.mobile.util
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
