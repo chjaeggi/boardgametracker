@@ -10,10 +10,10 @@
         android:name="com.chjaeggi.boardgametracker.mobile.home.HomeFragment"
         android:label=" "
         tools:layout="@layout/fragment_home" />
-
     <fragment
         android:id="@+id/about_fragment"
         android:name="com.chjaeggi.boardgametracker.mobile.about.AboutFragment"
         android:label="About"
         tools:layout="@layout/fragment_about" />
+
 </navigation>

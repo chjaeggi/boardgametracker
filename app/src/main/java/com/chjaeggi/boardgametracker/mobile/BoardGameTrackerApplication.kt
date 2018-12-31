@@ -1,6 +1,7 @@
-package com.chjaeggi.boardgametracker
+package com.chjaeggi.boardgametracker.mobile
 
 import android.app.Application
+import com.chjaeggi.boardgametracker.BuildConfig
 import com.chjaeggi.boardgametracker.mobile.di.appModule
 import org.koin.android.ext.android.startKoin
 import timber.log.Timber
