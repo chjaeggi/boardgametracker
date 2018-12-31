@@ -17,4 +17,10 @@
         android:id="@+id/statistics_fragment"
         android:name="com.chjaeggi.boardgametracker.mobile.home.statistics.StatisticsFragment"
         tools:layout="@layout/fragment_statistics" />
+
+    <activity
+        android:id="@+id/details_activity"
+        android:name="com.chjaeggi.boardgametracker.mobile.details.DetailsActivity"
+        tools:layout="@layout/activity_details" />
+
 </navigation>
