@@ -1,6 +1,7 @@
 package com.chjaeggi.boardgametracker.mobile.di
 
 import com.chjaeggi.boardgametracker.mobile.about.AboutViewModel
+import com.chjaeggi.boardgametracker.mobile.details.DetailsViewModel
 import com.chjaeggi.boardgametracker.mobile.home.favorites.FavoritesViewModel
 import com.chjaeggi.boardgametracker.mobile.home.overview.OverviewViewModel
 import com.chjaeggi.boardgametracker.mobile.home.statistics.StatisticsViewModel
@@ -13,4 +14,5 @@ val appModule = module(override = true) {
     viewModel { StatisticsViewModel() }
     viewModel { FavoritesViewModel() }
     viewModel { AboutViewModel() }
+    viewModel { DetailsViewModel() }
 }
