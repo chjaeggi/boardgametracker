@@ -10,7 +10,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".mobile.home.HomeFragment">
+        tools:context=".home.HomeFragment">
 
         <fragment
             android:id="@+id/home_nav_fragment"

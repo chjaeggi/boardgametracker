@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
-        android:name=".mobile.BoardGameTrackerApplication"
+        android:name=".BoardGameTrackerApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_app_icon"
@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".mobile.SplashActivity"
+            android:name=".SplashActivity"
             android:theme="@style/Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,8 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".mobile.MainActivity" />
-        <activity android:name=".mobile.details.DetailsActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".details.DetailsActivity"></activity>
     </application>
 
 </manifest>

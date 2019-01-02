@@ -7,20 +7,20 @@
 
     <fragment
         android:id="@+id/overview_fragment"
-        android:name="com.chjaeggi.boardgametracker.mobile.home.overview.OverviewFragment"
+        android:name="com.chjaeggi.boardgametracker.home.overview.OverviewFragment"
         tools:layout="@layout/fragment_overview" />
     <fragment
         android:id="@+id/favorites_fragment"
-        android:name="com.chjaeggi.boardgametracker.mobile.home.favorites.FavoritesFragment"
+        android:name="com.chjaeggi.boardgametracker.home.favorites.FavoritesFragment"
         tools:layout="@layout/fragment_favorites" />
     <fragment
         android:id="@+id/statistics_fragment"
-        android:name="com.chjaeggi.boardgametracker.mobile.home.statistics.StatisticsFragment"
+        android:name="com.chjaeggi.boardgametracker.home.statistics.StatisticsFragment"
         tools:layout="@layout/fragment_statistics" />
 
     <activity
         android:id="@+id/details_activity"
-        android:name="com.chjaeggi.boardgametracker.mobile.details.DetailsActivity"
+        android:name="com.chjaeggi.boardgametracker.details.DetailsActivity"
         tools:layout="@layout/activity_details" />
 
 </navigation>
