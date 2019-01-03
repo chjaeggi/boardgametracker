@@ -1,35 +1,31 @@
 package com.chjaeggi.boardgametracker.home.overview
 
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.MutableLiveData
+import com.chjaeggi.boardgametracker.data.BoardGameDataSource
+import com.chjaeggi.boardgametracker.domain.BoardGame
+import com.chjaeggi.boardgametracker.util.AppRxSchedulers
+import com.chjaeggi.boardgametracker.util.RxAwareViewModel
+import com.chjaeggi.boardgametracker.util.SingleLiveEvent
+import com.chjaeggi.boardgametracker.util.plusAssign
+import io.reactivex.rxkotlin.subscribeBy
 
-class OverviewViewModel : ViewModel() {
+class OverviewViewModel(
+private val schedulers: AppRxSchedulers,
+private val data: BoardGameDataSource
+) : RxAwareViewModel() {
 
-    // TODO download from internet
-    var games: ArrayList<ListItemGame> = ArrayList()
+    private val fetchedGamesLiveData = MutableLiveData<List<BoardGame>>()
+    val fetchedGames = fetchedGamesLiveData
 
-    init {
-        games.add(
-            ListItemGame(
-                "https://cf.geekdo-images.com/thumb/img/e7GyV4PaNtwmalU-EQAGecwoBSI=/fit-in/200x150/pic2437871.jpg",
-                "Gloomhaven",
-                3,
-                4,
-                5,
-                6,
-                true
+    fun fetchBoardGames() {
+        disposables += data
+            .getBoardGames()
+            .observeOn(schedulers.main)
+            .subscribeBy(
+                onSuccess = {
+                    fetchedGamesLiveData.postValue(it)
+                }
             )
-        )
-        games.add(
-            ListItemGame(
-                "https://cf.geekdo-images.com/thumb/img/mEmeJrI3AbGTpWyeFOZnR0s_LcY=/fit-in/200x150/pic361592.jpg",
-                "Twilight Struggle",
-                31,
-                41,
-                51,
-                61,
-                true
-            )
-        )
     }
 
 }

@@ -1,4 +1,4 @@
-package com.chjaeggi.boardgametracker.download
+package com.chjaeggi.boardgametracker.data
 
 import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4
@@ -18,6 +18,6 @@ class ExampleInstrumentedTest {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
 
-        assertEquals("com.chjaeggi.boardgametracker.download.test", appContext.getPackageName())
+        assertEquals("com.chjaeggi.boardgametracker.data.test", appContext.getPackageName())
     }
 }

@@ -23,10 +23,4 @@ class AboutFragment : Fragment() {
         binding.setLifecycleOwner(this)
         return binding.root
     }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        // TODO: Use the ViewModel
-    }
-
 }

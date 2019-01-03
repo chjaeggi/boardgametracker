@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.chjaeggi.boardgametracker.R
 import com.chjaeggi.boardgametracker.databinding.FragmentOverviewBinding
+import com.chjaeggi.boardgametracker.util.observeK
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -23,14 +24,16 @@ class OverviewFragment : Fragment() {
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_overview, container, false)
         binding.allGames.adapter = gamesAdapter
-        gamesAdapter.replaceData(viewModel.games)
+
+        viewModel.fetchBoardGames()
+
+        viewModel.fetchedGames.observeK(this) {
+            if (it != null) {
+                gamesAdapter.replaceData(it)
+            }
+        }
 
         binding.setLifecycleOwner(this)
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        // TODO: Use the ViewModel
     }
 }

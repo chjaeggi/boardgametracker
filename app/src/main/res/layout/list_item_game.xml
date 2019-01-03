@@ -8,7 +8,7 @@
 
         <variable
             name="item"
-            type="com.chjaeggi.boardgametracker.home.overview.ListItemGame" />
+            type="com.chjaeggi.boardgametracker.domain.BoardGame" />
     </data>
 
     <androidx.cardview.widget.CardView
