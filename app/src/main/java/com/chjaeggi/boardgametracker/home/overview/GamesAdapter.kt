@@ -6,10 +6,11 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.chjaeggi.boardgametracker.R
 import com.chjaeggi.boardgametracker.databinding.ListItemGameBinding
+import com.chjaeggi.boardgametracker.domain.BoardGame
 
 class GamesAdapter : RecyclerView.Adapter<GamesAdapter.ViewHolder>() {
 
-    private var items: List<ListItemGame> = arrayListOf()
+    private var items: List<BoardGame> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -21,13 +22,14 @@ class GamesAdapter : RecyclerView.Adapter<GamesAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int = items.size
 
-    fun replaceData(list: List<ListItemGame>) {
+    fun replaceData(list: List<BoardGame>) {
         items = list
+        notifyDataSetChanged()
     }
 
     inner class ViewHolder(val binding: ListItemGameBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: ListItemGame) {
+        fun bind(item: BoardGame) {
             binding.root.setOnClickListener { view ->
                 view.findNavController().navigate(R.id.details_activity)
             }
