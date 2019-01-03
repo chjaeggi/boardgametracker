@@ -6,6 +6,6 @@ import io.reactivex.schedulers.Schedulers
 
 data class AppRxSchedulers(
     val data: Scheduler = Schedulers.single(),
-    val disk: Scheduler = Schedulers.io(),
+    val io: Scheduler = Schedulers.io(),
     val main: Scheduler = AndroidSchedulers.mainThread()
 )
