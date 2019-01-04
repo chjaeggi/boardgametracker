@@ -12,8 +12,6 @@ data class BoardGame(
     val imageUrl: String,
     val minPlayers: Int,
     val maxPlayers: Int,
-    val minDuration: Int,
-    val maxDuration: Int,
-    val isCooperative: Boolean,
+    val playTime: Int,
     val isUserFavorite: Boolean
 )

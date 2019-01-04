@@ -13,18 +13,19 @@ class BoardGameRepository(private val webApi: BoardGameApi) : BoardGameDataSourc
                         BoardGame(
                             it.apiId,
                             it.name,
-                            "desc",
+                            it.description,
                             it.apiRank,
-                            "https://cf.geekdo-images.com/thumb/img/e7GyV4PaNtwmalU-EQAGecwoBSI=/fit-in/200x150/pic2437871.jpg",
-                            "no url",
-                            0,
-                            0,
-                            0,
-                            0,
-                            true,
-                            false
+                            it.thumbnailUrl,
+                            it.imageUrl,
+                            it.minPlayers,
+                            it.maxPlayers,
+                            it.playTime,
+                            isUserFavorite = false
                         )
                     )
+                }
+                .sortedBy {
+                    it.rank
                 }
         }
     }
