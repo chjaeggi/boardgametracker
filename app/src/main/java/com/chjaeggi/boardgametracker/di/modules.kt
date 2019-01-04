@@ -5,7 +5,7 @@ import com.chjaeggi.boardgametracker.data.BoardGameApi
 import com.chjaeggi.boardgametracker.data.BoardGameDataSource
 import com.chjaeggi.boardgametracker.data.BoardGameRepository
 import com.chjaeggi.boardgametracker.details.DetailsViewModel
-import com.chjaeggi.boardgametracker.download.DownloadManager
+import com.chjaeggi.boardgametracker.download.BoardGameGeek
 import com.chjaeggi.boardgametracker.home.favorites.FavoritesViewModel
 import com.chjaeggi.boardgametracker.home.overview.GamesAdapter
 import com.chjaeggi.boardgametracker.home.overview.OverviewViewModel
@@ -15,7 +15,7 @@ import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 
 val downloadModule = module(override = true) {
-    factory<BoardGameApi> { DownloadManager() }
+    factory<BoardGameApi> { BoardGameGeek() }
 }
 
 val dataModule = module(override = true) {
