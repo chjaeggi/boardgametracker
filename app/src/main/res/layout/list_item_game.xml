@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -14,32 +15,106 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="128dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp">
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="4dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/thumbnail"
                 android:layout_width="128dp"
                 android:layout_height="128dp"
                 android:scaleType="centerCrop"
                 app:imageUrl="@{item.thumbnailUrl}" />
 
             <TextView
+                android:id="@+id/textView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:text="@{item.name}"
-                android:textSize="20sp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/montserrat_black"
+                android:text="@{item.name}"
+                android:textColor="@color/black"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView2"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toEndOf="@+id/thumbnail"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageView
+                android:id="@+id/trophy"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/ic_trophy"
+                android:tint="@color/colorPrimaryBlack"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/thumbnail"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <ImageView
+                android:id="@+id/players"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/ic_group"
+                android:tint="@color/colorPrimaryBlack"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageView3"
+                app:layout_constraintStart_toEndOf="@+id/trophy"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/ic_timer"
+                android:tint="@color/colorPrimaryBlack"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="@{String.valueOf(item.rank)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/trophy"
+                app:layout_constraintStart_toStartOf="@+id/trophy"
+                tools:text="123" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="@{String.valueOf(item.minPlayers) + ` - ` + String.valueOf(item.maxPlayers)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/players"
+                app:layout_constraintStart_toStartOf="@+id/players"
+                tools:text="123" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="@{String.valueOf(item.playTime)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/imageView3"
+                app:layout_constraintStart_toStartOf="@+id/imageView3"
+                tools:text="123" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -23,6 +23,7 @@ class OverviewFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_overview, container, false)
+        binding.model = viewModel
         binding.allGames.adapter = gamesAdapter
 
         viewModel.fetchBoardGames()

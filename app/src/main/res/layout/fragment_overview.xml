@@ -1,24 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".home.overview.OverviewFragment">
 
-    <ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:paddingBottom="56dp"
-    android:paddingTop="?attr/actionBarSize">
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="com.chjaeggi.boardgametracker.home.overview.OverviewViewModel" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="?attr/actionBarSize"
+        android:paddingBottom="?attr/actionBarSize">
+
+        <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimationView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@id/downloadText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="dice_animation.json"
+        app:lottie_loop="true"
+        android:visibility="@{model.isLoading ? View.VISIBLE: View.GONE}"/>
+
+        <TextView
+        android:id="@+id/downloadText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="96dp"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
+        android:text="@string/downloading"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lottieAnimationView"
+        app:layout_constraintVertical_bias="1.0"
+        android:visibility="@{model.isLoading ? View.VISIBLE: View.GONE}"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/all_games"
             android:layout_width="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+            android:visibility="@{model.isLoading ? View.GONE: View.VISIBLE}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        </androidx.recyclerview.widget.RecyclerView>
-    </ScrollView>
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

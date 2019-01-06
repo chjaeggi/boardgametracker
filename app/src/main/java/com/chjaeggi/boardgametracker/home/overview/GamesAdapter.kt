@@ -39,5 +39,6 @@ class GamesAdapter : RecyclerView.Adapter<GamesAdapter.ViewHolder>() {
             }
         }
 
+
     }
 }

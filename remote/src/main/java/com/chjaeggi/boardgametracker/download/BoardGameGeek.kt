@@ -33,7 +33,7 @@ class BoardGameGeek : BoardGameApi {
     private fun getRankedBoardGames(): HashMap<Int, Int> {
         var rankedList: HashMap<Int, Int> = hashMapOf()
         try {
-            for (pageNumber in 1..1) { // Top 100
+            for (pageNumber in 1..3) { // Top 100
                 val document = Jsoup
                     .connect("https://boardgamegeek.com/browse/boardgame/page/$pageNumber")
                     .get()

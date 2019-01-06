@@ -1,5 +1,6 @@
 package com.chjaeggi.boardgametracker.home.overview
 
+import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.MutableLiveData
 import com.chjaeggi.boardgametracker.data.BoardGameDataSource
 import com.chjaeggi.boardgametracker.domain.BoardGame
@@ -16,13 +17,17 @@ class OverviewViewModel(
     private val fetchedGamesLiveData = MutableLiveData<List<BoardGame>>()
     val fetchedGames = fetchedGamesLiveData
 
+    val isLoading = ObservableBoolean(true)
+
     fun fetchBoardGames() {
+        isLoading.set(true)
         disposables += data
             .getBoardGames()
             .subscribeOn(schedulers.io)
             .observeOn(schedulers.main)
             .subscribeBy(
                 onSuccess = {
+                    isLoading.set(false)
                     fetchedGamesLiveData.postValue(it)
                 }
             )
