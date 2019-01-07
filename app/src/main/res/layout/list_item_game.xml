@@ -29,19 +29,20 @@
                 android:layout_width="128dp"
                 android:layout_height="128dp"
                 android:scaleType="centerCrop"
-                app:imageUrl="@{item.thumbnailUrl}" />
+                app:imageUrl="@{item.thumbnailUrl}"
+                android:background="@color/colorPrimaryBlack"/>
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
-                android:fontFamily="@font/montserrat_black"
+                android:fontFamily="@font/montserrat_semi_black"
                 android:text="@{item.name}"
-                android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/thumbnail"
@@ -50,69 +51,73 @@
 
             <ImageView
                 android:id="@+id/trophy"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="8dp"
+                android:padding="2dp"
                 android:src="@drawable/ic_trophy"
                 android:tint="@color/colorPrimaryBlack"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/thumbnail"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintStart_toEndOf="@+id/thumbnail" />
 
             <ImageView
                 android:id="@+id/players"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginEnd="56dp"
                 android:layout_marginBottom="8dp"
                 android:src="@drawable/ic_group"
                 android:tint="@color/colorPrimaryBlack"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageView3"
-                app:layout_constraintStart_toEndOf="@+id/trophy"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="8dp"
+                android:id="@+id/clock"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginEnd="56dp"
                 android:src="@drawable/ic_timer"
                 android:tint="@color/colorPrimaryBlack"
+                app:layout_constraintBottom_toTopOf="@+id/players"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/rankText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/montserrat"
+                android:text="@{String.valueOf(item.rank)}"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/trophy"
+                tools:text="123" />
+
+            <TextView
+                android:id="@+id/playersText"
+                android:layout_width="wrap_content"
+                android:layout_height="17dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/montserrat"
+                android:text="@{String.valueOf(item.minPlayers) + ` - ` + String.valueOf(item.maxPlayers)}"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:text="@{String.valueOf(item.rank)}"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/trophy"
-                app:layout_constraintStart_toStartOf="@+id/trophy"
                 tools:text="123" />
 
             <TextView
+                android:id="@+id/timeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:text="@{String.valueOf(item.minPlayers) + ` - ` + String.valueOf(item.maxPlayers)}"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/players"
-                app:layout_constraintStart_toStartOf="@+id/players"
-                tools:text="123" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/montserrat"
                 android:text="@{String.valueOf(item.playTime)}"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/imageView3"
-                app:layout_constraintStart_toStartOf="@+id/imageView3"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@+id/playersText"
+                app:layout_constraintEnd_toEndOf="parent"
                 tools:text="123" />
 
 
