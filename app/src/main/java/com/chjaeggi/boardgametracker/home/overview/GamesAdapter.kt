@@ -6,6 +6,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.chjaeggi.boardgametracker.R
 import com.chjaeggi.boardgametracker.databinding.ListItemGameBinding
+import com.chjaeggi.boardgametracker.details.DetailsActivity
 import com.chjaeggi.boardgametracker.domain.BoardGame
 
 class GamesAdapter : RecyclerView.Adapter<GamesAdapter.ViewHolder>() {
@@ -31,7 +32,7 @@ class GamesAdapter : RecyclerView.Adapter<GamesAdapter.ViewHolder>() {
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: BoardGame) {
             binding.root.setOnClickListener { view ->
-                view.findNavController().navigate(R.id.details_activity)
+                view.findNavController().navigate(R.id.details_activity, DetailsActivity.bundleArgs(item.id))
             }
             with(binding) {
                 binding.item = item

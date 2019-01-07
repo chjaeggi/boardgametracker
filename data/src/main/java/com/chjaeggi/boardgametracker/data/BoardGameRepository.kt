@@ -2,8 +2,19 @@ package com.chjaeggi.boardgametracker.data
 
 import com.chjaeggi.boardgametracker.domain.BoardGame
 import io.reactivex.Single
+import timber.log.Timber
 
 class BoardGameRepository(private val webApi: BoardGameApi) : BoardGameDataSource {
+
+    private var savedBoardGames: List<BoardGame> = listOf()
+
+    override fun getBoardGame(id: Int): Single<BoardGame> {
+        return Single.fromCallable {
+            savedBoardGames.find {
+                it.id == id
+            }
+        }
+    }
 
     override fun getBoardGames(): Single<List<BoardGame>> {
         return Single.fromCallable {
@@ -26,6 +37,9 @@ class BoardGameRepository(private val webApi: BoardGameApi) : BoardGameDataSourc
                 }
                 .sortedBy {
                     it.rank
+                }
+                .also {
+                    savedBoardGames = it
                 }
         }
     }
