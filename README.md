@@ -5,3 +5,4 @@ TODO:
 + koin warnings
 + themes instead defines everytime
 + clean up stuff in fragment / activity arguments
++ UIModel != Entity Model for BoardGame (and item in adapter for instance)
