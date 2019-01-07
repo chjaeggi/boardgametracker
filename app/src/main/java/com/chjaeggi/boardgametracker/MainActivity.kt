@@ -6,9 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
-import com.chjaeggi.boardgametracker.R
 import com.chjaeggi.boardgametracker.databinding.ActivityMainBinding
-import android.os.StrictMode
 
 
 

@@ -5,4 +5,5 @@ import io.reactivex.Single
 
 interface BoardGameDataSource {
     fun getBoardGames(): Single<List<BoardGame>>
+    fun getBoardGame(id: Int) : Single<BoardGame>
 }
