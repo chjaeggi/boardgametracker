@@ -11,7 +11,7 @@ import com.chjaeggi.boardgametracker.domain.BoardGame
 
 class GamesAdapter : RecyclerView.Adapter<GamesAdapter.ViewHolder>() {
 
-    private var items: List<BoardGame> = arrayListOf()
+    private var items: List<GamesAdapterModel> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -24,18 +24,36 @@ class GamesAdapter : RecyclerView.Adapter<GamesAdapter.ViewHolder>() {
     override fun getItemCount(): Int = items.size
 
     fun replaceData(list: List<BoardGame>) {
-        items = list
+        items = list.map { boardGame ->
+            val rankString = boardGame.rank.toString()
+            val playTimeString = boardGame.playTime.toString()
+            val playersString =
+                if (boardGame.minPlayers == boardGame.maxPlayers) {
+                    boardGame.minPlayers.toString()
+                } else {
+                    boardGame.minPlayers.toString() + " - " + boardGame.maxPlayers.toString()
+                }
+            GamesAdapterModel(
+                boardGame.id,
+                boardGame.name,
+                boardGame.thumbnailUrl,
+                rankString,
+                playTimeString,
+                playersString
+            )
+        }
         notifyDataSetChanged()
     }
 
     inner class ViewHolder(val binding: ListItemGameBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: BoardGame) {
+        fun bind(model: GamesAdapterModel) {
             binding.root.setOnClickListener { view ->
-                view.findNavController().navigate(R.id.details_activity, DetailsActivity.bundleArgs(item.id))
+                view.findNavController()
+                    .navigate(R.id.details_activity, DetailsActivity.bundleArgs(model.id))
             }
             with(binding) {
-                binding.item = item
+                binding.model = model
                 executePendingBindings()
             }
         }
