@@ -5,3 +5,4 @@ TODO:
 + koin warnings
 + themes instead defines everytime
 + clean up stuff in fragment / activity arguments
++ use actions between destinations
