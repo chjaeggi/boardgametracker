@@ -29,8 +29,7 @@
                 android:layout_width="128dp"
                 android:layout_height="128dp"
                 android:scaleType="centerCrop"
-                app:imageUrl="@{model.thumbnailUrl}"
-                android:background="@color/colorPrimaryBlack"/>
+                app:imageUrl="@{model.thumbnailUrl}"/>
 
             <TextView
                 android:id="@+id/title"
