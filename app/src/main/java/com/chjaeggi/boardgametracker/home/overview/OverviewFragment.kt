@@ -26,6 +26,13 @@ class OverviewFragment : Fragment() {
         binding.model = viewModel
         binding.allGames.adapter = gamesAdapter
 
+        with(binding.swipeLayout) {
+            setOnRefreshListener {
+                viewModel.fetchBoardGames()
+                isRefreshing = false
+            }
+        }
+
         viewModel.fetchBoardGames()
 
         viewModel.fetchedGames.observeK(this) {
