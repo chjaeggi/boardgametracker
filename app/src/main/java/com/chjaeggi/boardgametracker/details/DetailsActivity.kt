@@ -34,6 +34,7 @@ class DetailsActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_details)
         binding.setLifecycleOwner(this)
 
+
         viewModel.fetchCurrentBoardGame()
         Navigation.findNavController(this, R.id.details_nav_fragment)
             .navigate(
@@ -41,6 +42,11 @@ class DetailsActivity : AppCompatActivity() {
                 null,
                 NavOptions.Builder().setPopUpTo(R.id.details_loading_fragment, true).build()
             )
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
 }
