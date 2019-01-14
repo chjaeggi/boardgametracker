@@ -17,6 +17,7 @@ class DetailsViewModel(
 
     val description = ObservableField<String>("")
     val imageUrl = ObservableField<String>("")
+    val name = ObservableField<String>("")
 
     fun fetchCurrentBoardGame() {
         disposables += data
@@ -25,8 +26,14 @@ class DetailsViewModel(
             .observeOn(schedulers.main)
             .subscribeBy(
                 onSuccess = {
-                    description.set(Html.fromHtml(it.description, Html.FROM_HTML_MODE_LEGACY).toString())
+                    description.set(
+                        Html.fromHtml(
+                            it.description.replace("&#10;", "<br>", false),
+                            Html.FROM_HTML_MODE_LEGACY
+                        ).toString()
+                    )
                     imageUrl.set(it.imageUrl)
+                    name.set(it.name)
                 }
             )
 

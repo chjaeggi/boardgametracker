@@ -7,10 +7,29 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorControlNormal">@color/colorPrimaryLight</item>
+        <item name="toolbarNavigationButtonStyle">@style/Toolbar</item>
     </style>
 
     <style name="Splash" parent="AppTheme">
         <item name="android:windowBackground">@drawable/splash_background</item>
     </style>
+
+    <style name="Toolbar" parent="Base.Widget.AppCompat.Light.ActionBar">
+        <item name="tint">@color/colorPrimaryLight</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">24dp</item>
+        <item name="android:textColor">@color/colorPrimaryLight</item>
+    </style>
+
+    <style name="ExpandedToolbarTitle" parent="Toolbar">
+        <item name="tint">@android:color/transparent</item>
+        <item name="android:textColor">@android:color/transparent</item>
+    </style>
+
+    <style name="CollapsedToolbarTitle" parent="Toolbar">
+        <item name="tint">@color/colorPrimaryLight</item>
+        <item name="android:textColor">@color/colorPrimaryLight</item>
+    </style>
+
 
 </resources>
