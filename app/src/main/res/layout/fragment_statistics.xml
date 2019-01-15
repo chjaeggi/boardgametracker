@@ -14,25 +14,8 @@
             android:id="@+id/message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Statistics Fragment\nStatistics Fragment\nStatistics Fragment\n
-            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
-            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
-            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
-            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
-            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
-            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
-            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
-            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
-            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
-            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
-            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
-            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
-            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
-            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
-            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
-            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
-            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment\n
-            Statistics Fragment\nStatistics Fragment\nStatistics Fragment\nStatistics Fragment" />
+            android:gravity="center"
+            android:text="@string/not_implemented_yet" />
 
     </ScrollView>
 
