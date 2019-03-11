@@ -32,7 +32,7 @@ class DetailsActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_details)
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
 
 
         viewModel.fetchCurrentBoardGame()

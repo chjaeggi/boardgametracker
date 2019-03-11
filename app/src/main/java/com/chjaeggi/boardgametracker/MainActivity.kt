@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupActionBarWithNavController(this, navController, binding.drawerLayout)
         binding.navigationView.setupWithNavController(navController)
 
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
     }
 
 

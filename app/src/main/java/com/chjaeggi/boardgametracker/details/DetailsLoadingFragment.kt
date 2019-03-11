@@ -19,7 +19,7 @@ class DetailsLoadingFragment : Fragment() {
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_details_loading, container, false)
 
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
         return binding.root
 
     }

@@ -41,7 +41,7 @@ class OverviewFragment : Fragment() {
             }
         }
 
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
         return binding.root
     }
 }

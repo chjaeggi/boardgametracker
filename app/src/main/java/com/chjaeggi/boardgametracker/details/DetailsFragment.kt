@@ -29,7 +29,7 @@ class DetailsFragment : Fragment() {
         binding.moreDetails.setOnClickListener {
             Snackbar.make(it, R.string.not_implemented_yet, Snackbar.LENGTH_SHORT).show()
         }
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
         return binding.root
 
     }

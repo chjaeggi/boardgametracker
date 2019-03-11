@@ -1,25 +1,40 @@
 package com.chjaeggi.boardgametracker.di
 
+import androidx.room.Room
 import com.chjaeggi.boardgametracker.about.AboutViewModel
-import com.chjaeggi.boardgametracker.data.BoardGameApi
-import com.chjaeggi.boardgametracker.data.BoardGameDataSource
-import com.chjaeggi.boardgametracker.data.BoardGameRepository
+import com.chjaeggi.boardgametracker.data.*
 import com.chjaeggi.boardgametracker.details.DetailsViewModel
 import com.chjaeggi.boardgametracker.download.BoardGameGeek
 import com.chjaeggi.boardgametracker.home.favorites.FavoritesViewModel
 import com.chjaeggi.boardgametracker.home.overview.GamesAdapter
 import com.chjaeggi.boardgametracker.home.overview.OverviewViewModel
 import com.chjaeggi.boardgametracker.home.statistics.StatisticsViewModel
+import com.chjaeggi.boardgametracker.local.BoardGameDatabase
+import com.chjaeggi.boardgametracker.local.LocalDbImplementation
 import com.chjaeggi.boardgametracker.util.AppRxSchedulers
+import org.koin.android.ext.koin.androidApplication
 import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 
-val downloadModule = module(override = true) {
-    factory<BoardGameApi> { BoardGameGeek() }
+
+val databaseModule = module(override = true) {
+    single {
+        Room.databaseBuilder(
+            androidApplication(),
+            BoardGameDatabase::class.java,
+            "boardgametracker.db"
+        ).build()
+    }
+
+    factory { get<BoardGameDatabase>().boardgameDAO() }
 }
 
 val dataModule = module(override = true) {
-    single<BoardGameDataSource> { BoardGameRepository(get()) }
+    single<BoardGameRepoSource>("remote") { RemoteBoardGameRepository(get()) }
+    single<BoardGameRepoSource>("local") { LocalBoardGameRepository(get()) }
+    single<BoardGameDataSource> { BoardGameRepository(get("local"), get("remote")) }
+    factory<BoardGameWebApi> { BoardGameGeek() }
+    factory<BoardGameLocalApi> { LocalDbImplementation(get()) }
 }
 
 val appModule = module(override = true) {
@@ -35,5 +50,5 @@ val appModule = module(override = true) {
 
     viewModel { AboutViewModel() }
 
-    viewModel { (boardGameId : Int) -> DetailsViewModel(get(), get(), boardGameId) }
+    viewModel { (boardGameId: Int) -> DetailsViewModel(get(), get(), boardGameId) }
 }
