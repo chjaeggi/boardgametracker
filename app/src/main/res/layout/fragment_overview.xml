@@ -23,8 +23,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="?attr/actionBarSize"
-            android:paddingBottom="?attr/actionBarSize">
+            android:paddingTop="?attr/actionBarSize">
 
             <com.facebook.shimmer.ShimmerFrameLayout
                 android:layout_width="match_parent"

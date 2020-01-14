@@ -23,12 +23,4 @@ class HomeFragment : Fragment() {
         binding.lifecycleOwner = this
         return binding.root
     }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val bottomNavController =
-            Navigation.findNavController(requireActivity(), R.id.home_nav_fragment)
-        binding.homeNavBar.setupWithNavController(bottomNavController)
-    }
-
 }
