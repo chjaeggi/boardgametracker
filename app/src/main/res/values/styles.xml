@@ -4,31 +4,40 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+<!--        <item name="android:windowTranslucentStatus">true</item>-->
+        <item name="android:windowLightStatusBar">true</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorControlNormal">@color/colorPrimaryLight</item>
-        <item name="toolbarNavigationButtonStyle">@style/Toolbar</item>
+        <item name="colorControlNormal">@color/colorPrimaryDark</item>
     </style>
 
     <style name="Splash" parent="AppTheme">
         <item name="android:windowBackground">@drawable/splash_background</item>
     </style>
 
-    <style name="Toolbar" parent="Base.Widget.AppCompat.Light.ActionBar">
-        <item name="tint">@color/colorPrimaryLight</item>
-        <item name="android:layout_marginStart">16dp</item>
-        <item name="android:layout_marginEnd">24dp</item>
-        <item name="android:textColor">@color/colorPrimaryLight</item>
+    <style name="ToolBarStyle" parent="AppTheme">
+        <item name="android:background">@color/colorPrimaryLight</item>
+        <item name="android:textColorPrimary">@color/colorPrimaryDark</item>
+        <item name="android:textColorSecondary">@color/colorPrimaryDark</item>
+        <item name="actionMenuTextColor">@android:color/white</item>
     </style>
 
-    <style name="ExpandedToolbarTitle" parent="Toolbar">
+    <style name="ExpandingToolbar" parent="AppTheme">
+        <item name="tint">@color/colorPrimaryDark</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="ExpandedToolbarTitle" parent="ExpandingToolbar">
         <item name="tint">@android:color/transparent</item>
         <item name="android:textColor">@android:color/transparent</item>
     </style>
 
-    <style name="CollapsedToolbarTitle" parent="Toolbar">
-        <item name="tint">@color/colorPrimaryLight</item>
-        <item name="android:textColor">@color/colorPrimaryLight</item>
+    <style name="CollapsedToolbarTitle" parent="ExpandingToolbar">
+        <item name="tint">@color/colorPrimaryDark</item>
+        <item name="android:background">@color/colorPrimaryLight</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
 
