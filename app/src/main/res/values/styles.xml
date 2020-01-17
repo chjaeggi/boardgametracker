@@ -17,7 +17,7 @@
     </style>
 
     <style name="ToolBarStyle" parent="AppTheme">
-        <item name="android:background">@color/colorPrimaryLight</item>
+        <item name="android:background">#FAFAFA</item>
         <item name="android:textColorPrimary">@color/colorPrimaryDark</item>
         <item name="android:textColorSecondary">@color/colorPrimaryDark</item>
         <item name="actionMenuTextColor">@android:color/white</item>
@@ -35,7 +35,7 @@
 
     <style name="CollapsedToolbarTitle" parent="ExpandingToolbar">
         <item name="tint">@color/colorPrimaryDark</item>
-        <item name="android:background">@color/colorPrimaryLight</item>
+        <item name="android:background">#FAFAFA</item>
         <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:textSize">18sp</item>
     </style>
