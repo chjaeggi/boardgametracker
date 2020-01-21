@@ -7,6 +7,6 @@
     <string name="favorites">Favorites</string>
     <string name="statistics">Statistics</string>
     <string name="downloading">Downloading ...</string>
-    <string name="loading">Loading ...</string>
     <string name="not_implemented_yet">Not implemented yet ...</string>
+    <string name="top_100">Top 100</string>
 </resources>

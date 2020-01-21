@@ -3,15 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_details"
-    app:startDestination="@id/details_loading_fragment">
+    app:startDestination="@id/details_fragment">
 
     <fragment
         android:id="@+id/details_fragment"
         android:name="com.chjaeggi.boardgametracker.details.DetailsFragment"
         tools:layout="@layout/fragment_details"/>
-    <fragment
-        android:id="@+id/details_loading_fragment"
-        android:name="com.chjaeggi.boardgametracker.details.DetailsLoadingFragment"
-        tools:layout="@layout/fragment_details_loading"/>
 
 </navigation>

@@ -9,7 +9,7 @@
 
         <variable
             name="model"
-            type="com.chjaeggi.boardgametracker.home.overview.GamesAdapterModel" />
+            type="com.chjaeggi.boardgametracker.home.charts.GamesAdapterModel" />
     </data>
 
     <androidx.cardview.widget.CardView

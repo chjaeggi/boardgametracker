@@ -1,4 +1,4 @@
-package com.chjaeggi.boardgametracker.home.overview
+package com.chjaeggi.boardgametracker.home.charts
 
 data class GamesAdapterModel(
     val id: Int,
