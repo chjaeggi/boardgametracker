@@ -1,4 +1,4 @@
-package com.chjaeggi.boardgametracker.home.overview
+package com.chjaeggi.boardgametracker.home.charts
 
 import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.MutableLiveData
@@ -9,7 +9,7 @@ import com.chjaeggi.boardgametracker.util.RxAwareViewModel
 import com.chjaeggi.boardgametracker.util.plusAssign
 import io.reactivex.rxkotlin.subscribeBy
 
-class OverviewViewModel(
+class ChartsViewModel(
     private val schedulers: AppRxSchedulers,
     private val data: BoardGameDataSource
 ) : RxAwareViewModel() {

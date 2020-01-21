@@ -6,8 +6,8 @@ import com.chjaeggi.boardgametracker.data.*
 import com.chjaeggi.boardgametracker.details.DetailsViewModel
 import com.chjaeggi.boardgametracker.download.BoardGameGeek
 import com.chjaeggi.boardgametracker.home.favorites.FavoritesViewModel
-import com.chjaeggi.boardgametracker.home.overview.GamesAdapter
-import com.chjaeggi.boardgametracker.home.overview.OverviewViewModel
+import com.chjaeggi.boardgametracker.home.charts.GamesAdapter
+import com.chjaeggi.boardgametracker.home.charts.ChartsViewModel
 import com.chjaeggi.boardgametracker.home.statistics.StatisticsViewModel
 import com.chjaeggi.boardgametracker.local.BoardGameDatabase
 import com.chjaeggi.boardgametracker.local.LocalDbImplementation
@@ -42,7 +42,7 @@ val appModule = module(override = true) {
     single { AppRxSchedulers() }
 
     factory { GamesAdapter() }
-    viewModel { OverviewViewModel(get(), get()) }
+    viewModel { ChartsViewModel(get(), get()) }
 
     viewModel { StatisticsViewModel() }
 

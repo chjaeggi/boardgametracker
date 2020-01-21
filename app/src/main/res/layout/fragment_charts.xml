@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".home.overview.OverviewFragment">
+    tools:context=".home.charts.ChartsFragment">
 
     <data>
 
@@ -10,10 +10,9 @@
 
         <variable
             name="model"
-            type="com.chjaeggi.boardgametracker.home.overview.OverviewViewModel" />
+            type="com.chjaeggi.boardgametracker.home.charts.ChartsViewModel" />
 
     </data>
-
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"

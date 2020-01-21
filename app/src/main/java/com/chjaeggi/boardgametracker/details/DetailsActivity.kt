@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
+import androidx.navigation.ui.NavigationUI
 import com.chjaeggi.boardgametracker.R
 import com.chjaeggi.boardgametracker.databinding.ActivityDetailsBinding
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -40,7 +41,7 @@ class DetailsActivity : AppCompatActivity() {
             .navigate(
                 R.id.details_fragment,
                 null,
-                NavOptions.Builder().setPopUpTo(R.id.details_loading_fragment, true).build()
+                NavOptions.Builder().setPopUpTo(R.id.details_fragment, true).build()
             )
     }
 
@@ -48,5 +49,4 @@ class DetailsActivity : AppCompatActivity() {
         onBackPressed()
         return true
     }
-
 }
