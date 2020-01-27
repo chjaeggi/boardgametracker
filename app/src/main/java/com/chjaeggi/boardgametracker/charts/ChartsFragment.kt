@@ -1,4 +1,4 @@
-package com.chjaeggi.boardgametracker.home.charts
+package com.chjaeggi.boardgametracker.charts
 
 import android.os.Bundle
 import android.view.LayoutInflater

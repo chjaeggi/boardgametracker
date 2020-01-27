@@ -1,4 +1,4 @@
-package com.chjaeggi.boardgametracker.home.statistics
+package com.chjaeggi.boardgametracker.statistics
 
 import android.os.Bundle
 import android.view.LayoutInflater

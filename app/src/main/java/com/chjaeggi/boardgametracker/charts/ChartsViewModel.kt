@@ -1,4 +1,4 @@
-package com.chjaeggi.boardgametracker.home.charts
+package com.chjaeggi.boardgametracker.charts
 
 import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.MutableLiveData

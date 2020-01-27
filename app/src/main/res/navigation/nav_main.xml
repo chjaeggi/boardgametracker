@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/favorites_fragment"
-        android:name="com.chjaeggi.boardgametracker.home.favorites.FavoritesFragment"
+        android:name="com.chjaeggi.boardgametracker.favorites.FavoritesFragment"
         android:label=" "
         tools:layout="@layout/fragment_favorites" />
 
     <fragment
         android:id="@+id/charts_fragment"
-        android:name="com.chjaeggi.boardgametracker.home.charts.ChartsFragment"
+        android:name="com.chjaeggi.boardgametracker.charts.ChartsFragment"
         android:label="Top 100"
         tools:layout="@layout/fragment_charts" />
 

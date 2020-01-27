@@ -1,4 +1,4 @@
-package com.chjaeggi.boardgametracker.home.favorites
+package com.chjaeggi.boardgametracker.favorites
 
 import androidx.lifecycle.ViewModel
 

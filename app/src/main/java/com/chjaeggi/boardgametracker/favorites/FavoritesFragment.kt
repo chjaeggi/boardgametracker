@@ -1,4 +1,4 @@
-package com.chjaeggi.boardgametracker.home.favorites
+package com.chjaeggi.boardgametracker.favorites
 
 import android.os.Bundle
 import android.view.LayoutInflater

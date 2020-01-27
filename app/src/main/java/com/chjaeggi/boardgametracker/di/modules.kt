@@ -5,10 +5,10 @@ import com.chjaeggi.boardgametracker.about.AboutViewModel
 import com.chjaeggi.boardgametracker.data.*
 import com.chjaeggi.boardgametracker.details.DetailsViewModel
 import com.chjaeggi.boardgametracker.download.BoardGameGeek
-import com.chjaeggi.boardgametracker.home.favorites.FavoritesViewModel
-import com.chjaeggi.boardgametracker.home.charts.GamesAdapter
-import com.chjaeggi.boardgametracker.home.charts.ChartsViewModel
-import com.chjaeggi.boardgametracker.home.statistics.StatisticsViewModel
+import com.chjaeggi.boardgametracker.favorites.FavoritesViewModel
+import com.chjaeggi.boardgametracker.charts.GamesAdapter
+import com.chjaeggi.boardgametracker.charts.ChartsViewModel
+import com.chjaeggi.boardgametracker.statistics.StatisticsViewModel
 import com.chjaeggi.boardgametracker.local.BoardGameDatabase
 import com.chjaeggi.boardgametracker.local.LocalDbImplementation
 import com.chjaeggi.boardgametracker.util.AppRxSchedulers

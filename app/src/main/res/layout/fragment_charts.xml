@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".home.charts.ChartsFragment">
+    tools:context=".charts.ChartsFragment">
 
     <data>
 
@@ -10,7 +10,7 @@
 
         <variable
             name="model"
-            type="com.chjaeggi.boardgametracker.home.charts.ChartsViewModel" />
+            type="com.chjaeggi.boardgametracker.charts.ChartsViewModel" />
 
     </data>
 
