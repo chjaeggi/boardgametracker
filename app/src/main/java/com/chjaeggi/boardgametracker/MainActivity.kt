@@ -1,14 +1,14 @@
 package com.chjaeggi.boardgametracker
 
 import android.os.Bundle
-import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.chjaeggi.boardgametracker.databinding.ActivityMainBinding
-
 
 
 class MainActivity : AppCompatActivity() {
@@ -20,10 +20,14 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         val navController = Navigation.findNavController(this, R.id.main_nav_fragment)
+        val appBarConfig = AppBarConfiguration(
+            navController.graph,
+            binding.drawerLayout
+        )
 
         setSupportActionBar(binding.toolbar)
-        NavigationUI.setupActionBarWithNavController(this, navController, binding.drawerLayout)
         binding.navigationView.setupWithNavController(navController)
+        setupActionBarWithNavController(navController, appBarConfig)
 
         binding.lifecycleOwner = this
     }
