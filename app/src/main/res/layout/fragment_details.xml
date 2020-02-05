@@ -22,7 +22,7 @@
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:contentScrim="@color/colorPrimaryLight"
+                app:contentScrim="@color/colorPrimary"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 app:expandedTitleTextAppearance="@style/ExpandedToolbarTitle"
                 app:collapsedTitleTextAppearance="@style/CollapsedToolbarTitle"
@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="40dp"
             android:src="@drawable/ic_more"
-            android:tint="@color/colorPrimaryLight"
+            android:tint="@color/colorPrimary"
             app:layout_anchor="@id/app_bar"
             app:layout_anchorGravity="bottom|end" />
 

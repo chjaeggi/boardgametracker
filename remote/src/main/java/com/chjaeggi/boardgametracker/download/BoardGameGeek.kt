@@ -38,12 +38,12 @@ class BoardGameGeek : BoardGameWebApi {
                     .connect("https://boardgamegeek.com/browse/boardgame/page/$pageNumber")
                     .get()
                 val tdElement = document.select("td.collection_rank")
-                for (element in tdElement) {
-                    val rank = element
+                tdElement.forEach {
+                    val rank = it
                         .select("a[name]")
                         .attr("name")
                         .toInt()
-                    val id = element
+                    val id = it
                         .nextElementSibling()
                         .select("a[href]")
                         .attr("href")

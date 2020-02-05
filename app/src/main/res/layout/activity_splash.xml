@@ -19,7 +19,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:src="@drawable/logo_dice"
+                android:src="@drawable/die_brown"
                 android:background="@color/colorPrimary"
                 app:layout_collapseMode="parallax"
                 app:layout_constraintBottom_toBottomOf="parent"

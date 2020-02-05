@@ -1,13 +1,14 @@
 package com.chjaeggi.boardgametracker.data
 
 import com.chjaeggi.boardgametracker.domain.BoardGame
+import io.reactivex.Completable
 import io.reactivex.Single
 
 class RemoteBoardGameRepository(private val webApi: BoardGameWebApi) : BoardGameRepoSource {
 
     private var savedBoardGames: List<BoardGame> = listOf()
 
-    override fun saveBoardGames(games: List<BoardGame>) {
+    override fun saveBoardGame(games: List<Int>): Completable {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

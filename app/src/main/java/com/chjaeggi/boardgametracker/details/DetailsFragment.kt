@@ -27,7 +27,7 @@ class DetailsFragment : Fragment() {
             activity?.finish()
         }
         binding.moreDetails.setOnClickListener {
-            Snackbar.make(it, R.string.not_implemented_yet, Snackbar.LENGTH_SHORT).show()
+            viewModel.save()
         }
         binding.lifecycleOwner = this
         return binding.root

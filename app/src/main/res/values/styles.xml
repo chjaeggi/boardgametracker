@@ -7,9 +7,9 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
 <!--        <item name="android:windowTranslucentStatus">true</item>-->
         <item name="android:windowLightStatusBar">true</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorAccentDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorControlNormal">@color/colorPrimaryDark</item>
+        <item name="colorControlNormal">@color/colorAccentDark</item>
     </style>
 
     <style name="Splash" parent="AppTheme">
@@ -18,14 +18,14 @@
 
     <style name="ToolBarStyle" parent="AppTheme">
         <item name="android:background">#FAFAFA</item>
-        <item name="android:textColorPrimary">@color/colorPrimaryDark</item>
-        <item name="android:textColorSecondary">@color/colorPrimaryDark</item>
+        <item name="android:textColorPrimary">@color/colorAccentDark</item>
+        <item name="android:textColorSecondary">@color/colorAccentDark</item>
         <item name="actionMenuTextColor">@android:color/white</item>
     </style>
 
     <style name="ExpandingToolbar" parent="AppTheme">
-        <item name="tint">@color/colorPrimaryDark</item>
-        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="tint">@color/colorAccentDark</item>
+        <item name="android:textColor">@color/colorAccentDark</item>
     </style>
 
     <style name="ExpandedToolbarTitle" parent="ExpandingToolbar">
@@ -34,9 +34,9 @@
     </style>
 
     <style name="CollapsedToolbarTitle" parent="ExpandingToolbar">
-        <item name="tint">@color/colorPrimaryDark</item>
+        <item name="tint">@color/colorAccentDark</item>
         <item name="android:background">#FAFAFA</item>
-        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textColor">@color/colorAccentDark</item>
         <item name="android:textSize">18sp</item>
     </style>
 

@@ -7,6 +7,7 @@ import com.chjaeggi.boardgametracker.util.AppRxSchedulers
 import com.chjaeggi.boardgametracker.util.RxAwareViewModel
 import com.chjaeggi.boardgametracker.util.plusAssign
 import io.reactivex.rxkotlin.subscribeBy
+import timber.log.Timber
 
 
 class DetailsViewModel(
@@ -25,6 +26,9 @@ class DetailsViewModel(
             .subscribeOn(schedulers.io)
             .observeOn(schedulers.main)
             .subscribeBy(
+                onError = {
+                    Timber.d("$it")
+                },
                 onSuccess = {
                     description.set(
                         Html.fromHtml(
@@ -37,6 +41,18 @@ class DetailsViewModel(
                 }
             )
 
+    }
+
+    fun save() {
+        disposables += data
+            .saveBoardGame(boardGameId)
+            .subscribeOn(schedulers.io)
+            .observeOn(schedulers.main)
+            .subscribeBy(
+                onComplete = {
+                    Timber.d("XXX Saved")
+                }
+            )
     }
 
 }
