@@ -8,6 +8,7 @@ import com.chjaeggi.boardgametracker.download.BoardGameGeek
 import com.chjaeggi.boardgametracker.favorites.FavoritesViewModel
 import com.chjaeggi.boardgametracker.charts.GamesAdapter
 import com.chjaeggi.boardgametracker.charts.ChartsViewModel
+import com.chjaeggi.boardgametracker.domain.BoardGameCollection
 import com.chjaeggi.boardgametracker.statistics.StatisticsViewModel
 import com.chjaeggi.boardgametracker.local.BoardGameDatabase
 import com.chjaeggi.boardgametracker.local.RoomDb

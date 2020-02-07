@@ -1,6 +1,5 @@
-package com.chjaeggi.boardgametracker.data
+package com.chjaeggi.boardgametracker.domain
 
-import com.chjaeggi.boardgametracker.domain.BoardGame
 import io.reactivex.Completable
 import io.reactivex.Single
 

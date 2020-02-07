@@ -2,7 +2,7 @@ package com.chjaeggi.boardgametracker.details
 
 import android.text.Html
 import androidx.databinding.ObservableField
-import com.chjaeggi.boardgametracker.data.BoardGameCollection
+import com.chjaeggi.boardgametracker.domain.BoardGameCollection
 import com.chjaeggi.boardgametracker.util.AppRxSchedulers
 import com.chjaeggi.boardgametracker.util.RxAwareViewModel
 import com.chjaeggi.boardgametracker.util.plusAssign

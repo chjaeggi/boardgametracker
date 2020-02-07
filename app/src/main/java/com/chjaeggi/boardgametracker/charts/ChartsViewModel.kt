@@ -2,7 +2,7 @@ package com.chjaeggi.boardgametracker.charts
 
 import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.MutableLiveData
-import com.chjaeggi.boardgametracker.data.BoardGameCollection
+import com.chjaeggi.boardgametracker.domain.BoardGameCollection
 import com.chjaeggi.boardgametracker.domain.BoardGame
 import com.chjaeggi.boardgametracker.util.AppRxSchedulers
 import com.chjaeggi.boardgametracker.util.RxAwareViewModel
