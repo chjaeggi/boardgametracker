@@ -2,7 +2,7 @@ package com.chjaeggi.boardgametracker.charts
 
 import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.MutableLiveData
-import com.chjaeggi.boardgametracker.data.BoardGameDataSource
+import com.chjaeggi.boardgametracker.data.BoardGameCollection
 import com.chjaeggi.boardgametracker.domain.BoardGame
 import com.chjaeggi.boardgametracker.util.AppRxSchedulers
 import com.chjaeggi.boardgametracker.util.RxAwareViewModel
@@ -11,7 +11,7 @@ import io.reactivex.rxkotlin.subscribeBy
 
 class ChartsViewModel(
     private val schedulers: AppRxSchedulers,
-    private val data: BoardGameDataSource
+    private val collection: BoardGameCollection
 ) : RxAwareViewModel() {
 
     private val fetchedGamesLiveData = MutableLiveData<List<BoardGame>>()
@@ -21,8 +21,8 @@ class ChartsViewModel(
 
     fun fetchBoardGames() {
         isLoading.set(true)
-        disposables += data
-            .getBoardGames()
+        disposables += collection
+            .getGames()
             .subscribeOn(schedulers.io)
             .observeOn(schedulers.main)
             .subscribeBy(

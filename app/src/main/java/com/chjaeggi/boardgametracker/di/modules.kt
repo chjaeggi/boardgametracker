@@ -10,7 +10,7 @@ import com.chjaeggi.boardgametracker.charts.GamesAdapter
 import com.chjaeggi.boardgametracker.charts.ChartsViewModel
 import com.chjaeggi.boardgametracker.statistics.StatisticsViewModel
 import com.chjaeggi.boardgametracker.local.BoardGameDatabase
-import com.chjaeggi.boardgametracker.local.LocalDbImplementation
+import com.chjaeggi.boardgametracker.local.RoomDb
 import com.chjaeggi.boardgametracker.util.AppRxSchedulers
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.viewmodel.ext.koin.viewModel
@@ -30,11 +30,11 @@ val databaseModule = module(override = true) {
 }
 
 val dataModule = module(override = true) {
-    single<BoardGameRepoSource>("remote") { RemoteBoardGameRepository(get()) }
-    single<BoardGameRepoSource>("local") { LocalBoardGameRepository(get()) }
-    single<BoardGameDataSource> { BoardGameRepository(get("local"), get("remote")) }
-    factory<BoardGameWebApi> { BoardGameGeek() }
-    factory<BoardGameLocalApi> { LocalDbImplementation(get()) }
+    single<Storage>("remote") { RemoteStorage(get())  }
+    single<Storage>("local") { LocalStorage(get()) }
+    factory<BoardGameCollection> { MyCollection(get("remote"), get("local")) }
+    factory<WebSource> { BoardGameGeek() }
+    factory<LocalSource> { RoomDb(get()) }
 }
 
 val appModule = module(override = true) {

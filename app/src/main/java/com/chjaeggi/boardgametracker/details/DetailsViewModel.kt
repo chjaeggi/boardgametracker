@@ -2,7 +2,7 @@ package com.chjaeggi.boardgametracker.details
 
 import android.text.Html
 import androidx.databinding.ObservableField
-import com.chjaeggi.boardgametracker.data.BoardGameDataSource
+import com.chjaeggi.boardgametracker.data.BoardGameCollection
 import com.chjaeggi.boardgametracker.util.AppRxSchedulers
 import com.chjaeggi.boardgametracker.util.RxAwareViewModel
 import com.chjaeggi.boardgametracker.util.plusAssign
@@ -12,7 +12,7 @@ import timber.log.Timber
 
 class DetailsViewModel(
     private val schedulers: AppRxSchedulers,
-    private val data: BoardGameDataSource,
+    private val collection: BoardGameCollection,
     private var boardGameId: Int
 ) : RxAwareViewModel() {
 
@@ -21,8 +21,8 @@ class DetailsViewModel(
     val name = ObservableField<String>("")
 
     fun fetchCurrentBoardGame() {
-        disposables += data
-            .getBoardGame(boardGameId)
+        disposables += collection
+            .getGame(boardGameId)
             .subscribeOn(schedulers.io)
             .observeOn(schedulers.main)
             .subscribeBy(
@@ -44,8 +44,8 @@ class DetailsViewModel(
     }
 
     fun save() {
-        disposables += data
-            .saveBoardGame(boardGameId)
+        disposables += collection
+            .saveGame(boardGameId)
             .subscribeOn(schedulers.io)
             .observeOn(schedulers.main)
             .subscribeBy(

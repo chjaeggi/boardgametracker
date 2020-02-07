@@ -4,7 +4,7 @@ import com.chjaeggi.boardgametracker.domain.BoardGame
 import io.reactivex.Completable
 import io.reactivex.Single
 
-class RemoteBoardGameRepository(private val webApi: BoardGameWebApi) : BoardGameRepoSource {
+class RemoteStorage(private val webSource: WebSource) : Storage {
 
     private var savedBoardGames: List<BoardGame> = listOf()
 
@@ -12,7 +12,7 @@ class RemoteBoardGameRepository(private val webApi: BoardGameWebApi) : BoardGame
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getBoardGame(id: Int): Single<BoardGame> {
+    override fun loadBoardGame(id: Int): Single<BoardGame> {
         return Single.fromCallable {
             savedBoardGames.find {
                 it.id == id
@@ -20,9 +20,9 @@ class RemoteBoardGameRepository(private val webApi: BoardGameWebApi) : BoardGame
         }
     }
 
-    override fun getBoardGames(): Single<List<BoardGame>> {
+    override fun loadBoardGames(): Single<List<BoardGame>> {
         return Single.fromCallable {
-            webApi.getBoardGames()
+            webSource.fetchBoardGames()
                 .flatMap {
                     listOf(
                         BoardGame(

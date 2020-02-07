@@ -1,6 +1,6 @@
 package com.chjaeggi.boardgametracker.data
 
-data class BoardGameWebApiInfo(
+data class WebBoardGame(
     val apiId: Int,
     val name: String,
     val description: String,

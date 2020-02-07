@@ -1,22 +1,22 @@
 package com.chjaeggi.boardgametracker.download
 
-import com.chjaeggi.boardgametracker.data.BoardGameWebApi
-import com.chjaeggi.boardgametracker.data.BoardGameWebApiInfo
+import com.chjaeggi.boardgametracker.data.WebSource
+import com.chjaeggi.boardgametracker.data.WebBoardGame
 import org.jsoup.Jsoup
 import org.jsoup.parser.Parser
 import timber.log.Timber
 
-class BoardGameGeek : BoardGameWebApi {
+class BoardGameGeek : WebSource {
 
     private var details: HashMap<Int, BoardGameGeekDetails> = hashMapOf()
 
     /**
-     * returns a List in form as defined in [BoardGameWebApiInfo]
+     * returns a List in form as defined in [WebBoardGame]
      */
-    override fun getBoardGames(): List<BoardGameWebApiInfo> {
+    override fun fetchBoardGames(): List<WebBoardGame> {
         return getRankedBoardGames()
             .map {
-                BoardGameWebApiInfo(
+                WebBoardGame(
                     apiRank = it.value,
                     apiId = it.key,
                     description = details[it.key]?.description ?: "",
