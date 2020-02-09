@@ -24,9 +24,7 @@ class GamesAdapter : RecyclerView.Adapter<GamesAdapter.ViewHolder>() {
     override fun getItemCount(): Int = items.size
 
     fun replaceData(list: List<BoardGame>) {
-        items = list.map { boardGame ->
-            val rankString = boardGame.rank.toString()
-            val playTimeString = boardGame.playTime.toString()
+        items = list.mapIndexed { index, boardGame ->
             val playersString =
                 if (boardGame.minPlayers == boardGame.maxPlayers) {
                     boardGame.minPlayers.toString()
@@ -37,8 +35,8 @@ class GamesAdapter : RecyclerView.Adapter<GamesAdapter.ViewHolder>() {
                 boardGame.id,
                 boardGame.name,
                 boardGame.thumbnailUrl,
-                rankString,
-                playTimeString,
+                (index + 1).toString(),
+                boardGame.playTime.toString(),
                 playersString
             )
         }

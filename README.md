@@ -5,3 +5,4 @@ TODO:
 + koin warnings
 + themes instead defines 
 + clean the code (strip unnecessary stuff)
++ Add tests

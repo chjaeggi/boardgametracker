@@ -13,7 +13,7 @@ import timber.log.Timber
 class DetailsViewModel(
     private val schedulers: AppRxSchedulers,
     private val collection: BoardGameCollection,
-    private var boardGameId: Int
+    private val boardGameId: Int
 ) : RxAwareViewModel() {
 
     val description = ObservableField<String>("")

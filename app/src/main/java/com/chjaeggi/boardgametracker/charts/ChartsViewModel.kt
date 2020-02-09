@@ -19,10 +19,10 @@ class ChartsViewModel(
 
     val isLoading = ObservableBoolean(true)
 
-    fun fetchBoardGames() {
+    fun fetchTop100() {
         isLoading.set(true)
         disposables += collection
-            .getGames()
+            .getTop(100)
             .subscribeOn(schedulers.io)
             .observeOn(schedulers.main)
             .subscribeBy(

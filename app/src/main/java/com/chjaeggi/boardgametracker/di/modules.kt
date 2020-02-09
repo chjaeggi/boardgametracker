@@ -18,7 +18,7 @@ import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 
 
-val databaseModule = module(override = true) {
+val localModule = module(override = true) {
     single {
         Room.databaseBuilder(
             androidApplication(),
@@ -41,15 +41,10 @@ val dataModule = module(override = true) {
 val appModule = module(override = true) {
 
     single { AppRxSchedulers() }
-
     factory { GamesAdapter() }
     viewModel { ChartsViewModel(get(), get()) }
-
     viewModel { StatisticsViewModel() }
-
     viewModel { FavoritesViewModel() }
-
     viewModel { AboutViewModel() }
-
     viewModel { (boardGameId: Int) -> DetailsViewModel(get(), get(), boardGameId) }
 }

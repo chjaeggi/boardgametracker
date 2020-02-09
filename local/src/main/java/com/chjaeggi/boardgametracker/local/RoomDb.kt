@@ -1,7 +1,7 @@
 package com.chjaeggi.boardgametracker.local
 
 import com.chjaeggi.boardgametracker.data.LocalSource
-import com.chjaeggi.boardgametracker.data.LocalBoardGame
+import com.chjaeggi.boardgametracker.domain.LocalBoardGame
 import io.reactivex.Completable
 
 class RoomDb(private val boardgameDao: BoardGameDAO) : LocalSource {

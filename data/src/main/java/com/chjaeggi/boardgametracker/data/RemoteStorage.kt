@@ -14,22 +14,20 @@ class RemoteStorage(private val webSource: WebSource) : Storage {
 
     override fun loadBoardGame(id: Int): Single<BoardGame> {
         return Single.fromCallable {
-            savedBoardGames.find {
-                it.id == id
-            }
+            webSource.fetchGameById(id)
         }
     }
 
-    override fun loadBoardGames(): Single<List<BoardGame>> {
+    override fun loadTop(amount: Int): Single<List<BoardGame>> {
         return Single.fromCallable {
-            webSource.fetchBoardGames()
+            webSource.fetchTop(amount)
+                .sortedBy { it.apiRank }
                 .flatMap {
                     listOf(
                         BoardGame(
                             it.apiId,
                             it.name,
                             it.description,
-                            it.apiRank,
                             it.thumbnailUrl,
                             it.imageUrl,
                             it.minPlayers,
@@ -38,9 +36,6 @@ class RemoteStorage(private val webSource: WebSource) : Storage {
                             isUserFavorite = false
                         )
                     )
-                }
-                .sortedBy {
-                    it.rank
                 }
                 .also {
                     savedBoardGames = it

@@ -7,7 +7,6 @@ data class BoardGame(
     val id: Int,
     val name: String,
     val description: String,
-    val rank: Int,
     val thumbnailUrl: String,
     val imageUrl: String,
     val minPlayers: Int,

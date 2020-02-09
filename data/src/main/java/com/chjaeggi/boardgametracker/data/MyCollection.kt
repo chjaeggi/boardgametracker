@@ -10,12 +10,8 @@ class MyCollection(
     private val localStorage: Storage
 ) : BoardGameCollection {
 
-    override fun getGames(): Single<List<BoardGame>> {
-        return remoteStorage
-            .loadBoardGames()
-//            .doOnSuccess {
-//                localRepository.saveBoardGame(listOf(it[0].id))
-//            }
+    override fun getTop(amount: Int): Single<List<BoardGame>> {
+        return remoteStorage.loadTop(amount)
     }
 
     override fun getGame(id: Int): Single<BoardGame> {

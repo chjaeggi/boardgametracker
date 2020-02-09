@@ -9,7 +9,7 @@ class BoardGameTrackerApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        startKoin(this, listOf(databaseModule, dataModule, appModule))
+        startKoin(this, listOf(localModule, dataModule, appModule))
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }

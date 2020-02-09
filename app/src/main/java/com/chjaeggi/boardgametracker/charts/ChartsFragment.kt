@@ -28,12 +28,12 @@ class ChartsFragment : Fragment() {
 
         with(binding.swipeLayout) {
             setOnRefreshListener {
-                viewModel.fetchBoardGames()
+                viewModel.fetchTop100()
                 isRefreshing = false
             }
         }
 
-        viewModel.fetchBoardGames()
+        viewModel.fetchTop100()
 
         viewModel.fetchedGames.observeK(this) {
             if (it != null) {

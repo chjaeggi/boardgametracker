@@ -1,4 +1,4 @@
-package com.chjaeggi.boardgametracker.data
+package com.chjaeggi.boardgametracker.domain
 
 data class WebBoardGame(
     val apiId: Int,

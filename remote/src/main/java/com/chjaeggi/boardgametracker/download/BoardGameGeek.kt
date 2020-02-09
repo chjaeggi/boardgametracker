@@ -1,10 +1,13 @@
 package com.chjaeggi.boardgametracker.download
 
+import com.chjaeggi.boardgametracker.domain.WebBoardGame
 import com.chjaeggi.boardgametracker.data.WebSource
-import com.chjaeggi.boardgametracker.data.WebBoardGame
+import com.chjaeggi.boardgametracker.domain.BoardGame
 import org.jsoup.Jsoup
 import org.jsoup.parser.Parser
 import timber.log.Timber
+import java.lang.NumberFormatException
+import kotlin.math.ceil
 
 class BoardGameGeek : WebSource {
 
@@ -13,8 +16,8 @@ class BoardGameGeek : WebSource {
     /**
      * returns a List in form as defined in [WebBoardGame]
      */
-    override fun fetchBoardGames(): List<WebBoardGame> {
-        return getRankedBoardGames()
+    override fun fetchTop(amount: Int): List<WebBoardGame> {
+        return getRankedBoardGames(amount)
             .map {
                 WebBoardGame(
                     apiRank = it.value,
@@ -30,10 +33,73 @@ class BoardGameGeek : WebSource {
             }
     }
 
-    private fun getRankedBoardGames(): HashMap<Int, Int> {
+    override fun fetchGameById(queryId: Int): BoardGame {
+        val detail = BoardGameGeekDetails()
+        try {
+            val document = Jsoup.parse(
+                Jsoup
+                    .connect("https://www.boardgamegeek.com/xmlapi2/thing?id=$queryId")
+                    .maxBodySize(0)
+                    .get()
+                    .html(),
+                "",
+                Parser.xmlParser()
+            )
+
+            val name = document.getElementsByTag("name")
+            if (name.attr("type") == "primary") {
+                detail.name = name.`val`()
+            }
+            detail.description = document.getElementsByTag("description").text()
+            detail.thumbnail = document.getElementsByTag("thumbnail").text()
+            detail.image = document.getElementsByTag("image").text()
+            detail.minPlayers = document.getElementsByTag("minplayers").`val`().toInt()
+            detail.maxPlayers = document.getElementsByTag("maxplayers").`val`().toInt()
+            detail.playingTime = document.getElementsByTag("playingtime").`val`().toInt()
+
+        } catch (e: Exception) {
+            throw Exception(e)
+        }
+        return BoardGame(
+            id = queryId,
+            description = detail.description,
+            name = detail.name,
+            thumbnailUrl = detail.thumbnail,
+            imageUrl = detail.image,
+            minPlayers = detail.minPlayers,
+            maxPlayers = detail.maxPlayers,
+            playTime = detail.playingTime,
+            isUserFavorite = false
+        )
+    }
+
+    override fun fetchGameByName(name: String) : BoardGame? {
+        try {
+            val document = Jsoup.parse(
+                Jsoup
+                    .connect("https://www.boardgamegeek.com/xmlapi/search?search=$name&exact=1")
+                    .maxBodySize(0)
+                    .get()
+                    .html(),
+                "",
+                Parser.xmlParser()
+            )
+            val boardgame = document.getElementsByTag("boardgame")
+
+            return try {
+                fetchGameById(boardgame.attr("objectid").toInt())
+            } catch (e: NumberFormatException) {
+                null
+            }
+        } catch (e: Exception) {
+            throw Exception(e)
+        }
+    }
+
+    private fun getRankedBoardGames(amount: Int): HashMap<Int, Int> {
         var rankedList: HashMap<Int, Int> = hashMapOf()
         try {
-            for (pageNumber in 1..1) { // Top 100
+            for (pageNumber in 1..(ceil(amount / 100.0)).toInt()) {
                 val document = Jsoup
                     .connect("https://boardgamegeek.com/browse/boardgame/page/$pageNumber")
                     .get()

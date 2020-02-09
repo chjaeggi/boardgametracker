@@ -1,6 +1,7 @@
 package com.chjaeggi.boardgametracker.data
 
 import com.chjaeggi.boardgametracker.domain.BoardGame
+import com.chjaeggi.boardgametracker.domain.LocalBoardGame
 import io.reactivex.Completable
 import io.reactivex.Single
 
@@ -13,7 +14,7 @@ class LocalStorage(private val localSource: LocalSource) : Storage {
             listOf(
                 LocalBoardGame(
                     apiId = it,
-                    name = (it+1).toString()
+                    name = (it + 1).toString()
                 )
             )
         })
@@ -27,7 +28,7 @@ class LocalStorage(private val localSource: LocalSource) : Storage {
         }
     }
 
-    override fun loadBoardGames(): Single<List<BoardGame>> {
+    override fun loadTop(amount: Int): Single<List<BoardGame>> {
         TODO("Not implemented")
     }
 }

@@ -3,8 +3,13 @@
 
     <item
         android:id="@+id/charts_fragment"
+        android:icon="@drawable/ic_charts"
+        android:iconTint="@color/colorAccent"
+        android:iconTintMode="add"
         android:title="@string/top_100"/>
     <item
         android:id="@+id/about_fragment"
+        android:icon="@drawable/ic_info"
+        android:iconTint="@color/colorAccent"
         android:title="@string/about"/>
 </menu>
