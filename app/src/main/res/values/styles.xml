@@ -1,15 +1,20 @@
 <resources>
 
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
-<!--        <item name="android:windowTranslucentStatus">true</item>-->
         <item name="android:windowLightStatusBar">true</item>
         <item name="colorPrimaryDark">@color/colorAccentDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorControlNormal">@color/colorAccentDark</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="md_color_title">@color/colorPrimaryDark</item>
+        <item name="md_color_content">@color/colorAccent</item>
+        <item name="md_color_button_text">@color/colorAccentDark</item>
+        <item name="md_font_title">@font/montserrat_black</item>
+        <item name="md_font_body">@font/montserrat</item>
+        <item name="md_font_button">@font/montserrat</item>
+
     </style>
 
     <style name="Splash" parent="AppTheme">
@@ -21,11 +26,13 @@
         <item name="android:textColorPrimary">@color/colorAccentDark</item>
         <item name="android:textColorSecondary">@color/colorAccentDark</item>
         <item name="actionMenuTextColor">@android:color/white</item>
+        <item name="android:fontFamily">@font/montserrat_black</item>
     </style>
 
     <style name="ExpandingToolbar" parent="AppTheme">
         <item name="tint">@color/colorAccentDark</item>
         <item name="android:textColor">@color/colorAccentDark</item>
+        <item name="android:fontFamily">@font/montserrat_black</item>
     </style>
 
     <style name="ExpandedToolbarTitle" parent="ExpandingToolbar">
@@ -39,6 +46,5 @@
         <item name="android:textColor">@color/colorAccentDark</item>
         <item name="android:textSize">18sp</item>
     </style>
-
 
 </resources>

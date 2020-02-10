@@ -6,9 +6,11 @@
     <string name="overview">Overview</string>
     <string name="favorites">Favorites</string>
     <string name="statistics">Statistics</string>
-    <string name="downloading">Downloading ...</string>
-    <string name="not_implemented_yet">Not implemented yet ...</string>
+    <string name="not_implemented_yet">Not implemented yet…</string>
     <string name="top_100">Top 100</string>
-    <string name="search">Search</string>
+    <string name="find">Find</string>
     <string name="cancel">Cancel</string>
+    <string name="add_bg_title">Add Board Game</string>
+    <string name="add_bg_text">Add a new board game to your collection by entering its name, title, subtitle,…</string>
+
 </resources>
