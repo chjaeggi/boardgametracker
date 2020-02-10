@@ -9,13 +9,24 @@
         android:id="@+id/favorites_fragment"
         android:name="com.chjaeggi.boardgametracker.favorites.FavoritesFragment"
         android:label=" "
-        tools:layout="@layout/fragment_favorites" />
+        tools:layout="@layout/fragment_favorites" >
+        <action
+            android:id="@+id/action_favorites_fragment_to_charts_fragment"
+            app:destination="@id/charts_fragment" />
+        <action
+            android:id="@+id/action_favorites_fragment_to_about_fragment"
+            app:destination="@id/about_fragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/charts_fragment"
         android:name="com.chjaeggi.boardgametracker.charts.ChartsFragment"
         android:label="Top 100"
-        tools:layout="@layout/fragment_charts" />
+        tools:layout="@layout/fragment_charts">
+        <action
+            android:id="@+id/action_charts_fragment_to_details_activity"
+            app:destination="@id/details_activity" />
+    </fragment>
 
     <fragment
         android:id="@+id/about_fragment"
