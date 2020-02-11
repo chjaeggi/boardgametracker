@@ -10,23 +10,14 @@ import com.chjaeggi.boardgametracker.R
 import com.chjaeggi.boardgametracker.databinding.ActivityDetailsBinding
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
+import timber.log.Timber
 
 
 class DetailsActivity : AppCompatActivity() {
 
-    companion object {
-        private const val GAME_ID = "unique_game_id"
-
-        fun bundleArgs(gameId: Int): Bundle {
-            return Bundle().apply {
-                this.putInt(GAME_ID, gameId)
-            }
-        }
-    }
-
     private lateinit var binding: ActivityDetailsBinding
     private val viewModel: DetailsViewModel by viewModel {
-        parametersOf(intent.getIntExtra(GAME_ID, -1))
+        parametersOf(intent.getIntExtra("game_name", -1))
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,14 +26,7 @@ class DetailsActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_details)
         binding.lifecycleOwner = this
 
-
         viewModel.fetchCurrentBoardGame()
-        Navigation.findNavController(this, R.id.details_nav_fragment)
-            .navigate(
-                R.id.details_fragment,
-                null,
-                NavOptions.Builder().setPopUpTo(R.id.details_fragment, true).build()
-            )
     }
 
     override fun onSupportNavigateUp(): Boolean {

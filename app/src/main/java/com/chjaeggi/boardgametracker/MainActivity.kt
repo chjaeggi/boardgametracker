@@ -25,8 +25,6 @@ class MainActivity : AppCompatActivity() {
             binding.drawerLayout
         )
 
-//        navController.graph.startDestination = R.id.favorites_fragment
-
         setSupportActionBar(binding.toolbar)
         binding.navigationView.setupWithNavController(navController)
         setupActionBarWithNavController(navController, appBarConfig)

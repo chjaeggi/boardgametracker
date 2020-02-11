@@ -48,7 +48,7 @@ class GamesAdapter : RecyclerView.Adapter<GamesAdapter.ViewHolder>() {
         fun bind(model: GamesAdapterModel) {
             binding.root.setOnClickListener { view ->
                 view.findNavController()
-                    .navigate(R.id.details_activity, DetailsActivity.bundleArgs(model.id))
+                    .navigate(ChartsFragmentDirections.actionChartsFragmentToDetailsActivity(model.id))
             }
             with(binding) {
                 binding.model = model

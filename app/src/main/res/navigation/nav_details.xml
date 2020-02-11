@@ -8,6 +8,12 @@
     <fragment
         android:id="@+id/details_fragment"
         android:name="com.chjaeggi.boardgametracker.details.DetailsFragment"
-        tools:layout="@layout/fragment_details"/>
+        tools:layout="@layout/fragment_details">
+
+        <argument
+            android:name="game_name"
+            app:argType="integer" />
+
+    </fragment>
 
 </navigation>
