@@ -12,9 +12,9 @@ class RemoteStorage(private val webSource: WebSource) : Storage {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun loadBoardGame(id: Int): Single<BoardGame> {
+    override fun loadBoardGame(name: String): Single<BoardGame> {
         return Single.fromCallable {
-            webSource.fetchGameById(id)
+            webSource.fetchGameByName(name)
         }
     }
 

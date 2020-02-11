@@ -6,6 +6,6 @@ import io.reactivex.Single
 
 interface Storage {
     fun loadTop(amount: Int): Single<List<BoardGame>>
-    fun loadBoardGame(id: Int) : Single<BoardGame>
+    fun loadBoardGame(name: String) : Single<BoardGame>
     fun saveBoardGame(games : List<Int>): Completable
 }

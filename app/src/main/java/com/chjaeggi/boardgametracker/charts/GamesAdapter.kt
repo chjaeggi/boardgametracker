@@ -4,9 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.chjaeggi.boardgametracker.R
 import com.chjaeggi.boardgametracker.databinding.ListItemGameBinding
-import com.chjaeggi.boardgametracker.details.DetailsActivity
 import com.chjaeggi.boardgametracker.domain.BoardGame
 
 class GamesAdapter : RecyclerView.Adapter<GamesAdapter.ViewHolder>() {
@@ -48,7 +46,7 @@ class GamesAdapter : RecyclerView.Adapter<GamesAdapter.ViewHolder>() {
         fun bind(model: GamesAdapterModel) {
             binding.root.setOnClickListener { view ->
                 view.findNavController()
-                    .navigate(ChartsFragmentDirections.actionChartsFragmentToDetailsActivity(model.id))
+                    .navigate(ChartsFragmentDirections.actionChartsFragmentToDetailsActivity(model.name))
             }
             with(binding) {
                 binding.model = model

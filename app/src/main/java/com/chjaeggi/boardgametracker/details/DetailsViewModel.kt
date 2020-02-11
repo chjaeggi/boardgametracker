@@ -13,7 +13,7 @@ import timber.log.Timber
 class DetailsViewModel(
     private val schedulers: AppRxSchedulers,
     private val collection: BoardGameCollection,
-    private val boardGameId: Int
+    private val boardGameName: String
 ) : RxAwareViewModel() {
 
     val description = ObservableField<String>("")
@@ -22,7 +22,7 @@ class DetailsViewModel(
 
     fun fetchCurrentBoardGame() {
         disposables += collection
-            .getGame(boardGameId)
+            .getGame(boardGameName)
             .subscribeOn(schedulers.io)
             .observeOn(schedulers.main)
             .subscribeBy(
@@ -44,15 +44,15 @@ class DetailsViewModel(
     }
 
     fun save() {
-        disposables += collection
-            .saveGame(boardGameId)
-            .subscribeOn(schedulers.io)
-            .observeOn(schedulers.main)
-            .subscribeBy(
-                onComplete = {
-                    Timber.d("XXX Saved")
-                }
-            )
+//        disposables += collection
+//            .saveGame(boardGameId)
+//            .subscribeOn(schedulers.io)
+//            .observeOn(schedulers.main)
+//            .subscribeBy(
+//                onComplete = {
+//                    Timber.d("XXX Saved")
+//                }
+//            )
     }
 
 }

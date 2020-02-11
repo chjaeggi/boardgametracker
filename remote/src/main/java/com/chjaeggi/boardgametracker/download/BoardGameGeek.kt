@@ -33,7 +33,7 @@ class BoardGameGeek : WebSource {
             }
     }
 
-    override fun fetchGameById(queryId: Int): BoardGame {
+    private fun fetchGameById(queryId: Int): BoardGame {
         val detail = BoardGameGeekDetails()
         try {
             val document = Jsoup.parse(

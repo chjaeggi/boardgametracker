@@ -14,8 +14,8 @@ class MyCollection(
         return remoteStorage.loadTop(amount)
     }
 
-    override fun getGame(id: Int): Single<BoardGame> {
-        return remoteStorage.loadBoardGame(id)
+    override fun getGame(name: String): Single<BoardGame> {
+        return remoteStorage.loadBoardGame(name)
     }
 
     override fun saveGame(id: Int): Completable {

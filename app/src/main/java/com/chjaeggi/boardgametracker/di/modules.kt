@@ -46,5 +46,5 @@ val appModule = module(override = true) {
     viewModel { StatisticsViewModel() }
     viewModel { FavoritesViewModel() }
     viewModel { AboutViewModel() }
-    viewModel { (boardGameId: Int) -> DetailsViewModel(get(), get(), boardGameId) }
+    viewModel { (boardGameName: String) -> DetailsViewModel(get(), get(), boardGameName) }
 }

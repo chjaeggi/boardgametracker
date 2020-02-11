@@ -20,10 +20,10 @@ class LocalStorage(private val localSource: LocalSource) : Storage {
         })
     }
 
-    override fun loadBoardGame(id: Int): Single<BoardGame> {
+    override fun loadBoardGame(name: String): Single<BoardGame> {
         return Single.fromCallable {
             savedBoardGames.find {
-                it.id == id
+                it.name == name
             }
         }
     }

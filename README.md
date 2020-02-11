@@ -6,4 +6,4 @@ TODO:
 + themes instead defines 
 + clean the code (strip unnecessary stuff)
 + Add tests
-+ Nav incl. safeargs plugin
++ Remove WebBoardGame (make list ordered, no rank needed)
