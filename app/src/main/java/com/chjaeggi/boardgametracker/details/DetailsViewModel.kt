@@ -1,6 +1,7 @@
 package com.chjaeggi.boardgametracker.details
 
 import android.text.Html
+import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
 import com.chjaeggi.boardgametracker.domain.BoardGameCollection
 import com.chjaeggi.boardgametracker.util.AppRxSchedulers
@@ -20,7 +21,10 @@ class DetailsViewModel(
     val imageUrl = ObservableField<String>("")
     val name = ObservableField<String>("")
 
+    val isLoading = ObservableBoolean(true)
+
     fun fetchCurrentBoardGame() {
+        isLoading.set(true)
         disposables += collection
             .getGame(boardGameName)
             .subscribeOn(schedulers.io)
@@ -28,6 +32,7 @@ class DetailsViewModel(
             .subscribeBy(
                 onError = {
                     Timber.d("$it")
+                    isLoading.set(false)
                 },
                 onSuccess = {
                     description.set(
@@ -38,6 +43,7 @@ class DetailsViewModel(
                     )
                     imageUrl.set(it.imageUrl)
                     name.set(it.name)
+                    isLoading.set(false)
                 }
             )
 

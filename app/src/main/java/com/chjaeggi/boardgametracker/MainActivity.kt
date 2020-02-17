@@ -25,9 +25,8 @@ class MainActivity : AppCompatActivity() {
             binding.drawerLayout
         )
 
-        setSupportActionBar(binding.toolbar)
         binding.navigationView.setupWithNavController(navController)
-        setupActionBarWithNavController(navController, appBarConfig)
+        binding.toolbar.setupWithNavController(navController, appBarConfig)
 
         binding.lifecycleOwner = this
     }

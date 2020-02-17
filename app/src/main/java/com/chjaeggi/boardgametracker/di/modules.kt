@@ -2,16 +2,17 @@ package com.chjaeggi.boardgametracker.di
 
 import androidx.room.Room
 import com.chjaeggi.boardgametracker.about.AboutViewModel
+import com.chjaeggi.boardgametracker.charts.ChartsViewModel
+import com.chjaeggi.boardgametracker.charts.GamesAdapter
 import com.chjaeggi.boardgametracker.data.*
 import com.chjaeggi.boardgametracker.details.DetailsViewModel
+import com.chjaeggi.boardgametracker.domain.BoardGameCollection
 import com.chjaeggi.boardgametracker.download.BoardGameGeek
 import com.chjaeggi.boardgametracker.favorites.FavoritesViewModel
-import com.chjaeggi.boardgametracker.charts.GamesAdapter
-import com.chjaeggi.boardgametracker.charts.ChartsViewModel
-import com.chjaeggi.boardgametracker.domain.BoardGameCollection
-import com.chjaeggi.boardgametracker.statistics.StatisticsViewModel
 import com.chjaeggi.boardgametracker.local.BoardGameDatabase
 import com.chjaeggi.boardgametracker.local.RoomDb
+import com.chjaeggi.boardgametracker.statistics.StatisticsViewModel
+import com.chjaeggi.boardgametracker.users.UsersViewModel
 import com.chjaeggi.boardgametracker.util.AppRxSchedulers
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.viewmodel.ext.koin.viewModel
@@ -44,6 +45,7 @@ val appModule = module(override = true) {
     factory { GamesAdapter() }
     viewModel { ChartsViewModel(get(), get()) }
     viewModel { StatisticsViewModel() }
+    viewModel { UsersViewModel() }
     viewModel { FavoritesViewModel() }
     viewModel { AboutViewModel() }
     viewModel { (boardGameName: String) -> DetailsViewModel(get(), get(), boardGameName) }

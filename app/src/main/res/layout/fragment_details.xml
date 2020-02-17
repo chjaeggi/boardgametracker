@@ -3,90 +3,111 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <import type="android.view.View" />
         <variable
             name="model"
             type="com.chjaeggi.boardgametracker.details.DetailsViewModel" />
 
     </data>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/app_bar"
-            android:layout_width="match_parent"
-            android:layout_height="320dp">
-
-            <com.google.android.material.appbar.CollapsingToolbarLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:contentScrim="@color/colorPrimary"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                app:expandedTitleTextAppearance="@style/ExpandedToolbarTitle"
-                app:collapsedTitleTextAppearance="@style/CollapsedToolbarTitle"
-                app:collapsedTitleGravity="start"
-                app:toolbarId="@+id/toolbar">
-
-                <ImageView
-                    android:id="@+id/details_image"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    app:imageUrl="@{model.imageUrl}"
-                    app:layout_collapseMode="parallax" />
-
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    app:layout_collapseMode="pin"
-                    android:layout_marginEnd="48dp"
-                    app:navigationIcon="@drawable/ic_arrow_back"
-                    app:title="@{model.name}"
-                    app:theme="@style/ExpandingToolbar"/>
-
-            </com.google.android.material.appbar.CollapsingToolbarLayout>
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <androidx.core.widget.NestedScrollView
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/loading_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fillViewport="true"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="egg_timer_light.json"
+            app:lottie_loop="true"
+            android:visibility="@{model.isLoading ? View.VISIBLE: View.GONE}"/>
 
-            <LinearLayout
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{model.isLoading ? View.GONE: View.VISIBLE}">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/app_bar"
+                android:layout_width="match_parent"
+                android:layout_height="320dp">
+
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:contentScrim="@color/colorPrimary"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                    app:expandedTitleTextAppearance="@style/ExpandedToolbarTitle"
+                    app:collapsedTitleTextAppearance="@style/CollapsedToolbarTitle"
+                    app:collapsedTitleGravity="start"
+                    app:toolbarId="@+id/toolbar">
+
+                    <ImageView
+                        android:id="@+id/details_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        app:imageUrl="@{model.imageUrl}"
+                        app:layout_collapseMode="parallax" />
+
+                    <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        app:layout_collapseMode="pin"
+                        android:layout_marginEnd="48dp"
+                        app:navigationIcon="@drawable/ic_arrow_back"
+                        app:title="@{model.name}"
+                        app:theme="@style/ExpandingToolbar"/>
+
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:fillViewport="true"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="48dp"
-                    android:layout_marginTop="96dp"
-                    android:layout_marginRight="48dp"
-                    android:layout_marginBottom="48dp"
-                    android:fontFamily="@font/montserrat"
-                    android:justificationMode="inter_word"
-                    android:text="@{model.description}" />
-            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-        </androidx.core.widget.NestedScrollView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="48dp"
+                        android:layout_marginTop="96dp"
+                        android:layout_marginRight="48dp"
+                        android:layout_marginBottom="48dp"
+                        android:fontFamily="@font/montserrat"
+                        android:justificationMode="inter_word"
+                        android:text="@{model.description}" />
+                </LinearLayout>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/more_details"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="40dp"
-            android:src="@drawable/ic_more"
-            android:tint="@color/white"
+            </androidx.core.widget.NestedScrollView>
 
-            app:layout_anchor="@id/app_bar"
-            app:layout_anchorGravity="bottom|end" />
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/more_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="40dp"
+                android:src="@drawable/ic_more"
+                android:tint="@color/white"
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+                app:layout_anchor="@id/app_bar"
+                app:layout_anchorGravity="bottom|end" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

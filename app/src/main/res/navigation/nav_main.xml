@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_favorites_fragment_to_about_fragment"
             app:destination="@id/about_fragment" />
+        <action
+            android:id="@+id/action_favorites_fragment_to_users_fragment"
+            app:destination="@id/users_fragment" />
     </fragment>
 
     <fragment
@@ -33,6 +36,18 @@
         android:name="com.chjaeggi.boardgametracker.about.AboutFragment"
         android:label="About"
         tools:layout="@layout/fragment_about" />
+
+    <fragment
+        android:id="@+id/users_fragment"
+        android:name="com.chjaeggi.boardgametracker.users.UsersFragment"
+        android:label="Players"
+        tools:layout="@layout/fragment_users" />
+
+    <fragment
+        android:id="@+id/statistics_fragment"
+        android:name="com.chjaeggi.boardgametracker.statistics.StatisticsFragment"
+        android:label="Stats"
+        tools:layout="@layout/fragment_statistics" />
 
     <activity
         android:id="@+id/details_activity"
