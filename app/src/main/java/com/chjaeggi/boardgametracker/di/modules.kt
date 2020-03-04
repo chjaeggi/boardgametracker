@@ -11,6 +11,7 @@ import com.chjaeggi.boardgametracker.download.BoardGameGeek
 import com.chjaeggi.boardgametracker.favorites.FavoritesViewModel
 import com.chjaeggi.boardgametracker.local.BoardGameDatabase
 import com.chjaeggi.boardgametracker.local.RoomDb
+import com.chjaeggi.boardgametracker.search.SearchViewModel
 import com.chjaeggi.boardgametracker.statistics.StatisticsViewModel
 import com.chjaeggi.boardgametracker.users.UsersViewModel
 import com.chjaeggi.boardgametracker.util.AppRxSchedulers
@@ -32,7 +33,7 @@ val localModule = module(override = true) {
 }
 
 val dataModule = module(override = true) {
-    single<Storage>("remote") { RemoteStorage(get())  }
+    single<Storage>("remote") { RemoteStorage(get()) }
     single<Storage>("local") { LocalStorage(get()) }
     factory<BoardGameCollection> { MyCollection(get("remote"), get("local")) }
     factory<WebSource> { BoardGameGeek() }
@@ -46,7 +47,8 @@ val appModule = module(override = true) {
     viewModel { ChartsViewModel(get(), get()) }
     viewModel { StatisticsViewModel() }
     viewModel { UsersViewModel() }
+    viewModel { SearchViewModel() }
     viewModel { FavoritesViewModel() }
     viewModel { AboutViewModel() }
-    viewModel { (boardGameName: String) -> DetailsViewModel(get(), get(), boardGameName) }
+    viewModel { DetailsViewModel(get(), get()) }
 }

@@ -8,7 +8,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.chjaeggi.boardgametracker.R
 import com.chjaeggi.boardgametracker.databinding.FragmentDetailsBinding
-import com.google.android.material.snackbar.Snackbar
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 

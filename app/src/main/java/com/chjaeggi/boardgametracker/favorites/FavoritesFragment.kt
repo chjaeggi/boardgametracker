@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
-import com.chjaeggi.boardgametracker.R
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.input.getInputField
 import com.afollestad.materialdialogs.input.input
+import com.chjaeggi.boardgametracker.R
 import com.chjaeggi.boardgametracker.databinding.FragmentFavoritesBinding
 import com.chjaeggi.boardgametracker.util.observeK
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -30,16 +30,17 @@ class FavoritesFragment : androidx.fragment.app.Fragment() {
             MaterialDialog(requireContext()).show {
                 title(R.string.add_bg_title)
                 message(R.string.add_bg_text)
-                input(hint = "Terraforming Mars, e.g.")
+                input(hint = "Mage Knight, e.g.")
                 positiveButton(R.string.find) {
-                    viewModel.addGameClicked(it.getInputField().toString())
+                    viewModel.addGameClicked(it.getInputField().text.toString())
                 }
                 negativeButton(R.string.cancel)
             }
         }
 
         viewModel.addGame.observeK(this) {
-            findNavController().navigate(R.id.action_favorites_fragment_to_about_fragment)
+            findNavController()
+                .navigate(FavoritesFragmentDirections.actionFavoritesFragmentToSearchFragment(it.toString()))
         }
         return binding.root
     }

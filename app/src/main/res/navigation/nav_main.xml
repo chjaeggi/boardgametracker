@@ -9,7 +9,7 @@
         android:id="@+id/favorites_fragment"
         android:name="com.chjaeggi.boardgametracker.favorites.FavoritesFragment"
         android:label=" "
-        tools:layout="@layout/fragment_favorites" >
+        tools:layout="@layout/fragment_favorites">
         <action
             android:id="@+id/action_favorites_fragment_to_charts_fragment"
             app:destination="@id/charts_fragment" />
@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_favorites_fragment_to_users_fragment"
             app:destination="@id/users_fragment" />
+        <action
+            android:id="@+id/action_favorites_fragment_to_search_fragment"
+            app:destination="@id/search_fragment" />
     </fragment>
 
     <fragment
@@ -48,6 +51,16 @@
         android:name="com.chjaeggi.boardgametracker.statistics.StatisticsFragment"
         android:label="Stats"
         tools:layout="@layout/fragment_statistics" />
+
+    <fragment
+        android:id="@+id/search_fragment"
+        android:name="com.chjaeggi.boardgametracker.search.SearchFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search">
+        <argument
+            android:name="game_name"
+            app:argType="string" />
+    </fragment>
 
     <activity
         android:id="@+id/details_activity"

@@ -10,7 +10,7 @@ class FavoritesViewModel : ViewModel() {
     val addGame: LiveData<String> = _addGame
 
     fun addGameClicked(game: String) {
-        _addGame.postValue("game")
+        _addGame.postValue(game)
     }
 
 }

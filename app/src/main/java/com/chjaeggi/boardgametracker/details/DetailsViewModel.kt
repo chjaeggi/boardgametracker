@@ -13,8 +13,7 @@ import timber.log.Timber
 
 class DetailsViewModel(
     private val schedulers: AppRxSchedulers,
-    private val collection: BoardGameCollection,
-    private val boardGameName: String
+    private val collection: BoardGameCollection
 ) : RxAwareViewModel() {
 
     val description = ObservableField<String>("")
@@ -23,10 +22,10 @@ class DetailsViewModel(
 
     val isLoading = ObservableBoolean(true)
 
-    fun fetchCurrentBoardGame() {
+    fun fetchBoardGame(game: String) {
         isLoading.set(true)
         disposables += collection
-            .getGame(boardGameName)
+            .getGame(game)
             .subscribeOn(schedulers.io)
             .observeOn(schedulers.main)
             .subscribeBy(
